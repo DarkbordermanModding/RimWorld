@@ -39,6 +39,9 @@
     <None Include="..\Common\Defs\**" />
     <None Include="..\Common\Languages\**" />
     <None Include="..\Common\Patches\**" />
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\RimWorldLinux_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RemoveTraits.cs" />
