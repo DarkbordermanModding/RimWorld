@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Human Leather Patchleather</name>
+	<author>Darkborderman</author>
+    <packageId>Darkborderman.HumanLeatherPatchleather</packageId>
+	<supportedVersions>
+		<li>1.2</li>
+	</supportedVersions>
+	<description>A small patch. Make patchleather can be made from human leather.</description>
+	<loadAfter>
+		<li>Ludeon.Rimworld</li>
+	</loadAfter>
+</ModMetaData>
