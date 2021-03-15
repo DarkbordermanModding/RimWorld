@@ -39,9 +39,9 @@ namespace RemoveTraits
 
             foreach (TraitDef def in DefDatabase<TraitDef>.AllDefs.OrderBy(item => item.defName).ToList())
             {
-                bool index = settings.disableDict.TryGetValue(def.ToString(), false);
-                ls.CheckboxLabeled(def.ToString(), ref index);
-                settings.disableDict[def.ToString()] = index;
+                bool index = settings.disableDict.TryGetValue(def.defName, false);
+                ls.CheckboxLabeled(def.defName, ref index);
+                settings.disableDict[def.defName] = index;
             }
             settings.Write();
             ls.End();
