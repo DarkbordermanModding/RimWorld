@@ -30,24 +30,28 @@ namespace RemoveTraits
         public override void DoSettingsWindowContents(Rect inRect) {
 
             Listing_Standard ls = new Listing_Standard();
-            Rect rect2 = new Rect(0f, 0f, inRect.width/2 - 16f, inRect.height + DefDatabase<TraitDef>.AllDefs.Count() * 25);
+            Rect rect2 = new Rect(0f, 0f, inRect.width/2 - 16f, inRect.height + DefDatabase<TraitDef>.AllDefs.Count() * 27);
             Widgets.BeginScrollView(inRect, ref scrollPosition, rect2, true);
             ls.Begin(rect2);
 
             ls.CheckboxLabeled("Notify when surgery succeed", ref settings.notifyWhenSuccess);
             ls.Label("Keep Trait List", -1, "Check the trait to prevent being removed in midgame.");
+            ls.GapLine();
 
-            foreach (TraitDef def in DefDatabase<TraitDef>.AllDefs.OrderBy(item => item.defName).ToList())
+            foreach (TraitDef def in DefDatabase<TraitDef>.AllDefsListForReading)
             {
-                bool index = settings.disableDict.TryGetValue(def.defName, false);
-                ls.CheckboxLabeled(def.defName, ref index);
-                settings.disableDict[def.defName] = index;
+                foreach (TraitDegreeData i in def.degreeDatas)
+                {
+                    string uniqueTrait = def.defName + "(" + i.degree + ")";
+                    bool index = settings.disableDict.TryGetValue(uniqueTrait, false);
+                    ls.CheckboxLabeled(uniqueTrait, ref index);
+                    settings.disableDict[uniqueTrait] = index;
+                }
             }
             settings.Write();
             ls.End();
             Widgets.EndScrollView();
         }
-
     }
 
     public class RemoveTraits : Recipe_Surgery
@@ -60,7 +64,8 @@ namespace RemoveTraits
                 foreach(Trait trait in pawn.story.traits.allTraits)
                 {
                     //Not in disabled trait mean can be surgeryed.
-                    if (!RemoveTraitsMod.settings.disableDict.TryGetValue(trait.def.defName, false))
+                    string uniqueTrait = trait.def.defName + "(" + trait.Degree + ")";
+                    if (!RemoveTraitsMod.settings.disableDict.TryGetValue(uniqueTrait, false))
                     {
                         return true;
                     }
@@ -80,7 +85,8 @@ namespace RemoveTraits
             foreach(Trait trait in pawn.story.traits.allTraits)
             {
                 //Not in disabled trait mean can be surgeryed.
-                if (!RemoveTraitsMod.settings.disableDict.TryGetValue(trait.def.defName, false))
+                string uniqueTrait = trait.def.defName + "(" + trait.Degree + ")";
+                if (!RemoveTraitsMod.settings.disableDict.TryGetValue(uniqueTrait, false))
                 {
                     pawn.story.traits.allTraits.RemoveAt(index);
                     // Update pawn status
@@ -100,9 +106,9 @@ namespace RemoveTraits
 
                     // Notify
                     if (RemoveTraitsMod.settings.notifyWhenSuccess){
-                        Messages.Message("Successfully remove " + pawn.ToString() + "'s trait. (" + trait.def.defName + ")", pawn, MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("Successfully remove " + pawn.ToString() + "'s trait. (" + uniqueTrait + ")", pawn, MessageTypeDefOf.PositiveEvent);
                     }
-                    Log.Message("Removed " + trait.def.defName + " from pawn " + pawn.NameShortColored);
+                    Log.Message("Removed " +uniqueTrait + " from pawn " + pawn.NameShortColored);
                     break;
                 }
                 index++;
