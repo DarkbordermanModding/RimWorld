@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Baseclass -->
+  <RecipeDef Name="SurgeryRemoveInjuryBase" ParentName="SurgeryFlesh" Abstract="True">
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <workAmount>3500</workAmount>
+    <label>Cure</label>
+    <isViolation>true</isViolation>
+    <skillRequirements>
+      <Medicine>0</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+    </recipeUsers>
+    <surgerySuccessChanceFactor>0.80</surgerySuccessChanceFactor>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Subclasses -->
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureMisc</defName>
+    <label>Cure misc</label>
+    <description>Cure a miscellanous damage, can be an injury or a scar.</description>
+    <jobString>Curing misc.</jobString>
+    <removesHediff>
+      <li>Misc</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureBurn</defName>
+    <label>Cure burn</label>
+    <description>Cure a burn damage, can be an injury or a scar.</description>
+    <jobString>Curing burn.</jobString>
+    <removesHediff>
+      <li>Burn</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureChemicalBurn</defName>
+    <label>Cure chemical burn</label>
+    <description>Cure a chemical burn damage, can be an injury or a scar.</description>
+    <jobString>Curing chemical burn.</jobString>
+    <removesHediff>
+      <li>ChemicalBurn</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureCrush</defName>
+    <label>Cure crush</label>
+    <description>Cure a crush damage, can be an injury or a scar.</description>
+    <jobString>Curing cursh.</jobString>
+    <removesHediff>
+      <li>Crush</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureCrack</defName>
+    <label>Cure crack</label>
+    <description>Cure a crack damage, can be an injury or a scar.</description>
+    <jobString>Curing crack.</jobString>
+    <removesHediff>
+      <li>Crack</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureCut</defName>
+    <label>Cure cut</label>
+    <description>Cure a cut damange, can be an injury or a scar.</description>
+    <jobString>Curing cut.</jobString>
+    <removesHediff>
+      <li>Cut</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureSurgicalCut</defName>
+    <label>Cure surgical cut</label>
+    <description>Cure a surgical cut damange, can be an injury or a scar.</description>
+    <jobString>Curing surgical cut.</jobString>
+    <removesHediff>
+      <li>SurgicalCut</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureScratch</defName>
+    <label>Cure scratch</label>
+    <description>Cure a scratch damage, can be an injury or a scar.</description>
+    <jobString>Curing scratch.</jobString>
+    <removesHediff>
+      <li>Scratch</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureBite</defName>
+    <label>Cure bite</label>
+    <description>Cure a bite damage, can be an injury or a scar.</description>
+    <jobString>Curing bite.</jobString>
+    <removesHediff>
+      <li>Bite</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureStab</defName>
+    <label>Cure stab</label>
+    <description>Cure a stab damage, can be an injury or a scar.</description>
+    <jobString>Curing stab.</jobString>
+    <removesHediff>
+      <li>Stab</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureGunshot</defName>
+    <label>Cure gunshot</label>
+    <description>Cure a gunshot damage, can be an injury or a scar.</description>
+    <jobString>Curing gunshot.</jobString>
+    <removesHediff>
+      <li>Gunshot</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureShredded</defName>
+    <label>Cure shredded</label>
+    <description>Cure a shredded damage, can be an injury or a scar.</description>
+    <jobString>Curing shredded.</jobString>
+    <removesHediff>
+      <li>Shredded</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureBruise</defName>
+    <label>Cure bruise</label>
+    <description>Cure a bruise damage, can be an injury or a scar.</description>
+    <jobString>Curing bruise.</jobString>
+    <removesHediff>
+      <li>Bruise</li>
+    </removesHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveInjuryBase">
+    <defName>CureFrostbite</defName>
+    <label>Cure frostbite</label>
+    <description>Cure a frostbite damage, can be an injury or a scar.</description>
+    <jobString>Curing frostbite.</jobString>
+    <removesHediff>
+      <li>Frostbite</li>
+    </removesHediff>
+  </RecipeDef>
+
+</Defs>
